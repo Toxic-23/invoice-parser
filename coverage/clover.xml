@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1711820610933" clover="3.2.0">
-  <project timestamp="1711820610933" name="All files">
-    <metrics statements="140" coveredstatements="124" conditionals="62" coveredconditionals="50" methods="28" coveredmethods="22" elements="230" coveredelements="196" complexity="0" loc="140" ncloc="140" packages="4" files="7" classes="7"/>
+<coverage generated="1711820714348" clover="3.2.0">
+  <project timestamp="1711820714348" name="All files">
+    <metrics statements="140" coveredstatements="126" conditionals="62" coveredconditionals="51" methods="28" coveredmethods="23" elements="230" coveredelements="200" complexity="0" loc="140" ncloc="140" packages="4" files="7" classes="7"/>
     <package name="controllers">
       <metrics statements="16" coveredstatements="16" conditionals="4" coveredconditionals="4" methods="3" coveredmethods="3"/>
       <file name="uploadController.js" path="/Users/romantoxic/Projects/invoice-parser/controllers/uploadController.js">
@@ -64,7 +64,7 @@
       </file>
     </package>
     <package name="services">
-      <metrics statements="76" coveredstatements="73" conditionals="46" coveredconditionals="41" methods="13" coveredmethods="12"/>
+      <metrics statements="76" coveredstatements="75" conditionals="46" coveredconditionals="42" methods="13" coveredmethods="13"/>
       <file name="errorService.js" path="/Users/romantoxic/Projects/invoice-parser/services/errorService.js">
         <metrics statements="10" coveredstatements="10" conditionals="2" coveredconditionals="2" methods="2" coveredmethods="2"/>
         <line num="1" count="1" type="stmt"/>
@@ -79,21 +79,21 @@
         <line num="15" count="2" type="stmt"/>
       </file>
       <file name="excelService.js" path="/Users/romantoxic/Projects/invoice-parser/services/excelService.js">
-        <metrics statements="14" coveredstatements="12" conditionals="4" coveredconditionals="3" methods="2" coveredmethods="1"/>
+        <metrics statements="14" coveredstatements="14" conditionals="4" coveredconditionals="4" methods="2" coveredmethods="2"/>
         <line num="9" count="2" type="stmt"/>
         <line num="14" count="2" type="stmt"/>
-        <line num="16" count="3" type="stmt"/>
-        <line num="18" count="3" type="stmt"/>
-        <line num="19" count="3" type="stmt"/>
+        <line num="16" count="4" type="stmt"/>
+        <line num="18" count="4" type="stmt"/>
+        <line num="19" count="4" type="stmt"/>
         <line num="25" count="1" type="stmt"/>
-        <line num="27" count="3" type="stmt"/>
-        <line num="28" count="3" type="cond" truecount="1" falsecount="1"/>
-        <line num="29" count="0" type="stmt"/>
-        <line num="32" count="0" type="stmt"/>
-        <line num="35" count="3" type="cond" truecount="2" falsecount="0"/>
+        <line num="27" count="4" type="stmt"/>
+        <line num="28" count="4" type="cond" truecount="2" falsecount="0"/>
+        <line num="29" count="1" type="stmt"/>
+        <line num="32" count="2" type="stmt"/>
+        <line num="35" count="4" type="cond" truecount="2" falsecount="0"/>
         <line num="36" count="2" type="stmt"/>
-        <line num="38" count="3" type="stmt"/>
-        <line num="39" count="3" type="stmt"/>
+        <line num="38" count="4" type="stmt"/>
+        <line num="39" count="4" type="stmt"/>
       </file>
       <file name="extractDataService.js" path="/Users/romantoxic/Projects/invoice-parser/services/extractDataService.js">
         <metrics statements="52" coveredstatements="51" conditionals="40" coveredconditionals="36" methods="9" coveredmethods="9"/>
