@@ -7,7 +7,6 @@ import * as extractDataService from '../../../services/extractDataService'
 import * as schemas from '../../../models/schemas'
 import * as dateUtils from '../../../utils/date'
 
-
 jest.mock('../../../services/errorService.js', () => ({
     createError: jest.fn(),
 }))
@@ -55,7 +54,7 @@ describe('processExcelFile', () => {
     it('should throw an error if dates are ', () => {
         const fileDataPath = path.join(__dirname, '../../file_broken_date.xlsx')
         const binaryData = fs.readFileSync(fileDataPath)
-        
+
         const expectedInputParsedPath = path.join(
             __dirname,
             './mock/default_with_headings.json',
@@ -73,5 +72,4 @@ describe('processExcelFile', () => {
         excelService.processExcelFile(binaryData, invoicingMonthQuery)
         expect(errorService.createError).toHaveBeenCalled()
     })
-    
 })
