@@ -1,16 +1,20 @@
-import { validateInput, validateRecord } from './validationService.js'
+import { validateInput } from '../models/schemas.js'
 import { convertDateFormat } from '../utils/date.js'
-import { ERROR_MESSAGES, createError } from './errorService.js'
+import { createError } from './errorService.js'
 import {
     extractDataFromExcel,
     parseInvoicesData,
-} from './exctractDataService.js'
+} from './extractDataService.js'
+
+export const ERROR_MESSAGES = {
+    WRONG_INPUT: 'Invalid input data',
+    INCOMPATIBLE_DATES: 'Dates are different in query and file!',
+}
 
 export const processExcelFile = (binaryData, invoicingMonthQuery) => {
-    // read input
     let { InvoicingMonth, currencyRates, headings, invoicesData } =
         extractDataFromExcel(binaryData)
-    // convert Excel date to needed format
+
     try {
         InvoicingMonth = convertDateFormat(
             InvoicingMonth,
@@ -20,19 +24,17 @@ export const processExcelFile = (binaryData, invoicingMonthQuery) => {
     } catch (err) {
         createError(400, err.message)
     }
-    // validate input data
     let inputErrors = validateInput({ InvoicingMonth, currencyRates, headings })
-
-    if (inputErrors.error?.details) {
-        createError(400, ERROR_MESSAGES.WRONG_INPUT, inputErrors.error.details)
+    if (inputErrors) {
+        createError(
+            400,
+            ERROR_MESSAGES.WRONG_INPUT,
+            inputErrors.map(({ message }) => message),
+        )
     }
-
-    // validate Excel date corresponds date in query parameter
     if (InvoicingMonth !== invoicingMonthQuery) {
         createError(400, ERROR_MESSAGES.INCOMPATIBLE_DATES)
     }
-
     invoicesData = parseInvoicesData(invoicesData, currencyRates)
-
     return { InvoicingMonth, invoicesData, currencyRates }
 }

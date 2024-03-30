@@ -12,18 +12,17 @@ As an output endpoint should return the data in a format like:
 {
 InvoicingMonth: “YYYY-MM” - from the file,
 currencyRates: {
-  USD: 
-  EUR:
-  GBP: 
+USD:
+EUR:
+GBP:
 },
 invoicesData: [
-   .. all the invoices data, columns according to the file…
+.. all the invoices data, columns according to the file…
 ]
 }
 
-
 In addition, invoicesData records should have additional column validationErrors which contains all the line validation errors, assuming:
-Mandatory fields: Customer, Cust No', Project Type, Quantity, Price Per Item, Item Price Currency, Total Price, Invoice Currency, Status;	
+Mandatory fields: Customer, Cust No', Project Type, Quantity, Price Per Item, Item Price Currency, Total Price, Invoice Currency, Status;
 Add any relevant validations you think is necessary, based on the input data analysis;
 When no validation errors - keep validationErrors empty;
 

@@ -1,0 +1,287 @@
+{
+    "InvoicingMonth": "2023-09",
+    "invoicesData": [
+        {
+            "Customer": "Coca Col",
+            "Cust No'": 21314,
+            "Project Type": "Marketing",
+            "Quantity": 12,
+            "Price Per Item": 2,
+            "Item Price Currency": "USD",
+            "Total Price": 10000,
+            "Invoice Currency": "USD",
+            "Status": "Ready",
+            "Invoice #": null,
+            "Contract Comments": "Remid next mont",
+            "validationErrors": [],
+            "Invoice Total": 38490
+        },
+        {
+            "Customer": "Oracle",
+            "Cust No'": 39001,
+            "Project Type": "Marketing",
+            "Quantity": 4,
+            "Price Per Item": 1,
+            "Item Price Currency": "USD",
+            "Total Price": 4,
+            "Invoice Currency": "USD",
+            "Status": "Ready",
+            "Invoice #": null,
+            "Contract Comments": null,
+            "validationErrors": [],
+            "Invoice Total": 15.396
+        },
+        {
+            "Customer": "Amazon",
+            "Cust No'": 21220,
+            "Project Type": "Marketing",
+            "Quantity": 2,
+            "Price Per Item": 1,
+            "Item Price Currency": "USD",
+            "Total Price": null,
+            "Invoice Currency": "ILS",
+            "Status": "Ready",
+            "Invoice #": null,
+            "Contract Comments": null,
+            "validationErrors": [
+                "\"Total Price\" must be a number",
+                "It is impossible to calculate Invoice Total, because there is no Total Price or Total Price is not a number."
+            ]
+        },
+        {
+            "Customer": "TikTok",
+            "Cust No'": 21320,
+            "Project Type": "Finance",
+            "Quantity": 2,
+            "Price Per Item": 1,
+            "Item Price Currency": "USD",
+            "Total Price": null,
+            "Invoice Currency": "ILS",
+            "Status": "Ready",
+            "Invoice #": null,
+            "Contract Comments": null,
+            "validationErrors": [
+                "\"Total Price\" must be a number",
+                "It is impossible to calculate Invoice Total, because there is no Total Price or Total Price is not a number."
+            ]
+        },
+        {
+            "Customer": "CrazyIce",
+            "Cust No'": 21270,
+            "Project Type": "Marketing",
+            "Quantity": 5,
+            "Price Per Item": 2,
+            "Item Price Currency": "USD",
+            "Total Price": 10,
+            "Invoice Currency": "GBP",
+            "Status": "Ready",
+            "Invoice #": null,
+            "Contract Comments": "Amazing project",
+            "validationErrors": [],
+            "Invoice Total": 47.003
+        },
+        {
+            "Customer": "Ford",
+            "Cust No'": 21169,
+            "Project Type": "Marketing",
+            "Quantity": 2,
+            "Price Per Item": 1,
+            "Item Price Currency": "USD",
+            "Total Price": 200,
+            "Invoice Currency": "ILS",
+            "Status": "Ready",
+            "Invoice #": null,
+            "Contract Comments": null,
+            "validationErrors": [
+                "It is impossible to calculate Invoice Total, because there is no rate present for currency ILS"
+            ]
+        },
+        {
+            "Customer": "Honda",
+            "Cust No'": 21205,
+            "Project Type": "Marketing",
+            "Quantity": 8,
+            "Price Per Item": 1,
+            "Item Price Currency": "USD",
+            "Total Price": null,
+            "Invoice Currency": "ILS",
+            "Status": "Done",
+            "Invoice #": "INV89773354",
+            "Contract Comments": null,
+            "validationErrors": [
+                "\"Total Price\" must be a number",
+                "It is impossible to calculate Invoice Total, because there is no Total Price or Total Price is not a number."
+            ]
+        },
+        {
+            "Customer": "Google",
+            "Cust No'": 21205,
+            "Project Type": "24/7 Support",
+            "Quantity": 2,
+            "Price Per Item": "Need to decide",
+            "Item Price Currency": "USD",
+            "Total Price": "Need to define later ",
+            "Invoice Currency": "ILS",
+            "Status": "Ready",
+            "Invoice #": null,
+            "Contract Comments": null,
+            "validationErrors": [
+                "\"Price Per Item\" must be a number",
+                "\"Total Price\" must be a number",
+                "It is impossible to calculate Invoice Total, because there is no Total Price or Total Price is not a number."
+            ]
+        },
+        {
+            "Customer": "Zara",
+            "Cust No'": 21220,
+            "Project Type": "Marketing",
+            "Quantity": 1,
+            "Price Per Item": 10,
+            "Item Price Currency": "USD",
+            "Total Price": 10000,
+            "Invoice Currency": "ILS",
+            "Status": "Ready",
+            "Invoice #": null,
+            "Contract Comments": null,
+            "validationErrors": [
+                "It is impossible to calculate Invoice Total, because there is no rate present for currency ILS"
+            ]
+        },
+        {
+            "Customer": "Dior",
+            "Cust No'": null,
+            "Project Type": "Development",
+            "Quantity": 1,
+            "Price Per Item": null,
+            "Item Price Currency": "USD",
+            "Total Price": null,
+            "Invoice Currency": "USD",
+            "Status": null,
+            "Invoice #": "INV12345678",
+            "Contract Comments": null,
+            "validationErrors": [
+                "\"Cust No'\" must be a number",
+                "\"Price Per Item\" must be a number",
+                "\"Total Price\" must be a number",
+                "\"Status\" must be one of [Ready, Done]",
+                "\"Status\" must be a string",
+                "It is impossible to calculate Invoice Total, because there is no Total Price or Total Price is not a number."
+            ]
+        },
+        {
+            "Customer": null,
+            "Cust No'": null,
+            "Project Type": "Development",
+            "Quantity": null,
+            "Price Per Item": null,
+            "Item Price Currency": "USD",
+            "Total Price": null,
+            "Invoice Currency": null,
+            "Status": "Ready",
+            "Invoice #": null,
+            "Contract Comments": null,
+            "validationErrors": [
+                "\"Customer\" must be a string",
+                "\"Cust No'\" must be a number",
+                "\"Quantity\" must be a number",
+                "\"Price Per Item\" must be a number",
+                "\"Total Price\" must be a number",
+                "\"Invoice Currency\" must be a string",
+                "It is impossible to calculate Invoice Total, because there is no Total Price or Total Price is not a number."
+            ]
+        },
+        {
+            "Customer": "UPS",
+            "Cust No'": 21313,
+            "Project Type": "Marketing",
+            "Quantity": 1,
+            "Price Per Item": 1,
+            "Item Price Currency": "USD",
+            "Total Price": null,
+            "Invoice Currency": "ILS",
+            "Status": "Ready",
+            "Invoice #": null,
+            "Contract Comments": null,
+            "validationErrors": [
+                "\"Total Price\" must be a number",
+                "It is impossible to calculate Invoice Total, because there is no Total Price or Total Price is not a number."
+            ]
+        },
+        {
+            "Customer": "Chanel",
+            "Cust No'": 21113,
+            "Project Type": "Development",
+            "Quantity": 1,
+            "Price Per Item": 1,
+            "Item Price Currency": "USD",
+            "Total Price": null,
+            "Invoice Currency": "ILS",
+            "Status": "Ready",
+            "Invoice #": null,
+            "Contract Comments": null,
+            "validationErrors": [
+                "\"Total Price\" must be a number",
+                "It is impossible to calculate Invoice Total, because there is no Total Price or Total Price is not a number."
+            ]
+        },
+        {
+            "Customer": "Chanel",
+            "Cust No'": 21113,
+            "Project Type": "Marketing",
+            "Quantity": 1,
+            "Price Per Item": 1,
+            "Item Price Currency": "USD",
+            "Total Price": 2,
+            "Invoice Currency": "ILS",
+            "Status": "Ready",
+            "Invoice #": null,
+            "Contract Comments": null,
+            "validationErrors": [
+                "It is impossible to calculate Invoice Total, because there is no rate present for currency ILS"
+            ]
+        },
+        {
+            "Customer": "ToniKo",
+            "Cust No'": 21272,
+            "Project Type": "Marketing",
+            "Quantity": 1,
+            "Price Per Item": 5,
+            "Item Price Currency": "USD",
+            "Total Price": 10,
+            "Invoice Currency": "ILS",
+            "Status": "Ready",
+            "Invoice #": null,
+            "Contract Comments": null,
+            "validationErrors": [
+                "It is impossible to calculate Invoice Total, because there is no rate present for currency ILS"
+            ]
+        },
+        {
+            "Customer": "Boss",
+            "Cust No'": 21234,
+            "Project Type": "Marketing",
+            "Quantity": 4,
+            "Price Per Item": 2,
+            "Item Price Currency": "USD",
+            "Total Price": 8,
+            "Invoice Currency": "ILS",
+            "Status": "Ready",
+            "Invoice #": null,
+            "Contract Comments": null,
+            "validationErrors": [
+                "It is impossible to calculate Invoice Total, because there is no rate present for currency ILS"
+            ]
+        }
+    ],
+    "currencyRates": [
+        {
+            "USD": 3.849
+        },
+        {
+            "EUR": 4.0575
+        },
+        {
+            "GBP": 4.7003
+        }
+    ]
+}

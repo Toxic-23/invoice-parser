@@ -1,11 +1,21 @@
 import Joi from 'joi'
-import { ERROR_MESSAGES } from '../services/errorService.js'
 
-const minLengthCustNo = 5
-// Exact values for mandatory headings
-const mandatoryHeadings = [
+const MIN_LENGTH_CUST_NO = 5
+
+const ERROR_MESSAGES = {
+    INVALID_EXCEL_DATE:
+        'Invalid date format. Format should be like "Sep 2023".',
+    INVALID_CURRENCY:
+        'Invalid date format. Format should be like "EUR, USD or ILS".',
+    MISSED_MANDATORY_HEADINGS: (headings) =>
+        `You are missing mandatory headings in your data: ${headings.join(',')}`,
+    INVALID_CUST_NO: `Cust No must be a ${MIN_LENGTH_CUST_NO}-digit number.`,
+    NO_CURRENCIES_PRESENT: 'At least one currency is required.',
+}
+
+const MANDATORY_HEADINGS = [
     'Customer',
-    'Cust No',
+    "Cust No'",
     'Project Type',
     'Quantity',
     'Price Per Item',
@@ -13,94 +23,96 @@ const mandatoryHeadings = [
     'Total Price',
     'Invoice Currency',
     'Status',
-    // Add more mandatory headings as needed
 ]
 
 export const INVOICE_STATUSES = {
     Ready: 'Ready',
     Done: 'Done',
 }
-// Status ENUM
+
 export const statusesEnum = Object.values(INVOICE_STATUSES)
-// Project type ENUM
+
 const projectTypesEnum = ['Finance', 'Marketing', '24/7 Support', 'Development']
-// Custom validation function for date format
+
 export const validateExcelInputDate = (value, helpers) => {
     const regex = /^(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec) \d{4}$/
     if (!regex.test(value)) {
-        return helpers.message(
-            ERROR_MESSAGES.INVALID_EXCEL_DATE,
-        )
+        return helpers.message(ERROR_MESSAGES.INVALID_EXCEL_DATE)
     }
     return value
 }
-// Custom currency function for currencies
+
 export const validateCurrency = (value, helpers) => {
     const regex = /\b[A-Z]{3}\b/g
     if (!regex.test(value)) {
+        return helpers.message(ERROR_MESSAGES.INVALID_CURRENCY)
+    }
+    return value
+}
+
+const validateMandatoryHeadings = (value, helpers) => {
+    const missingHeadings = MANDATORY_HEADINGS.filter(
+        (field) => !value.includes(field),
+    )
+    if (missingHeadings.length > 0) {
         return helpers.message(
-            ERROR_MESSAGES.INVALID_CURRENCY,
+            ERROR_MESSAGES.MISSED_MANDATORY_HEADINGS(missingHeadings),
         )
     }
     return value
 }
-// Schema for individual records
+
 export const recordSchema = Joi.object({
     Customer: Joi.string().required(),
     "Cust No'": Joi.number()
         .required()
         .custom((value, helpers) => {
-            const strValue = String(value) // Convert number to string
-            if (strValue.length !== minLengthCustNo) {
-                return helpers.message(
-                    `Cust No must be a ${minLengthCustNo}-digit number.`,
-                )
+            const strValue = String(value)
+            if (strValue.length !== MIN_LENGTH_CUST_NO) {
+                return helpers.message(ERROR_MESSAGES.INVALID_CUST_NO)
             }
-            return strValue // Return the string value if it passes validation
+            return strValue
         }),
     'Project Type': Joi.string()
         .required()
         .valid(...projectTypesEnum),
     Quantity: Joi.number().required(),
     'Price Per Item': Joi.number().required(),
-    'Item Price Currency': Joi.string()
-        .custom(validateCurrency, 'custom date format')
-        .required(),
+    'Item Price Currency': Joi.string().custom(validateCurrency).required(),
     'Total Price': Joi.number().required(),
-    'Invoice Currency': Joi.string()
-        .custom(validateCurrency, 'custom date format')
-        .required(),
+    'Invoice Currency': Joi.string().custom(validateCurrency).required(),
     Status: Joi.string()
         .required()
         .valid(...statusesEnum),
 })
 
-    .unknown(true) // Allow any additional fields
+    .unknown(true)
     .options({ abortEarly: false })
 
-// Define the schema for the array of currency objects
 const currenciesSchema = Joi.array()
     .items(
         Joi.object().pattern(
-            Joi.string()
-                .custom(validateCurrency, 'Currency key validation')
-                .required(),
+            Joi.string().custom(validateCurrency).required(),
             Joi.number().required(),
         ),
     )
-    .min(1) // At least one currency object is required
+    .min(1)
+    .messages({
+        'array.min': ERROR_MESSAGES.NO_CURRENCIES_PRESENT,
+    })
 
-// Schema for input
 export const inputSchema = Joi.object({
     InvoicingMonth: Joi.string()
         .regex(/^\d{4}-(0[1-9]|1[0-2])$/)
         .required(),
     headings: Joi.array()
-        .items(
-            Joi.string().valid(...mandatoryHeadings), // Specify exact values for mandatory headings
-            Joi.string(), // Allow any additional string for headings
-        )
-        .unique() // Ensure uniqueness of headings
-        .required(),
+        .items(Joi.string())
+        .sparse()
+        .custom(validateMandatoryHeadings),
     currencyRates: currenciesSchema,
 }).options({ abortEarly: false })
+
+export const validateInput = (input) =>
+    inputSchema.validate(input)?.error?.details
+
+export const validateRecord = (record) => recordSchema.validate(record)
