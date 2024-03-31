@@ -8,6 +8,7 @@ const port = process.env.PORT || 3000
 app.use('/', routes)
 app.use(errorHandler)
 
-app.listen(port, () => {
+const server = app.listen(port, () => {
     console.log(`Server is running on http://localhost:${port}`)
 })
+export default server

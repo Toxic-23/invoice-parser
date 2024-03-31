@@ -2,7 +2,7 @@ import Joi from 'joi'
 
 const MIN_LENGTH_CUST_NO = 5
 
-const ERROR_MESSAGES = {
+export const ERROR_MESSAGES = {
     INVALID_EXCEL_DATE:
         'Invalid date format. Format should be like "Sep 2023".',
     INVALID_CURRENCY:

@@ -8,7 +8,10 @@ describe('extractDataService', () => {
     })
     describe('extractDataFromExcel', () => {
         it('should extract data from Excel file correctly', () => {
-            const fileDataPath = path.join(__dirname, '../../file.xlsx')
+            const fileDataPath = path.join(
+                __dirname,
+                '../../fixtures/file.xlsx',
+            )
             const binaryData = fs.readFileSync(fileDataPath)
 
             const result = extractDataService.extractDataFromExcel(binaryData)
@@ -33,7 +36,10 @@ describe('extractDataService', () => {
 
     describe('parseInvoicesData', () => {
         it('should extract relevant invoices from the file correctly', () => {
-            const fileDataPath = path.join(__dirname, '../../file.xlsx')
+            const fileDataPath = path.join(
+                __dirname,
+                '../../fixtures/file.xlsx',
+            )
             const binaryData = fs.readFileSync(fileDataPath)
 
             const parsedInput =

@@ -75,7 +75,7 @@ describe('uploadExcelFile controller', () => {
     })
 
     it('should respond with an error if invalid file is attached to the request', () => {
-        const fileDataPath = path.join(__dirname, '../../txt_file.txt')
+        const fileDataPath = path.join(__dirname, '../../fixtures/txt_file.txt')
         const fileData = fs.readFileSync(fileDataPath)
         const req = mockRequest(
             { invoicingMonth: '2023-03' },
@@ -95,7 +95,7 @@ describe('uploadExcelFile controller', () => {
     })
 
     it('should process the Excel file and send the result as JSON', () => {
-        const fileDataPath = path.join(__dirname, '../../file.xlsx')
+        const fileDataPath = path.join(__dirname, '../../fixtures/file.xlsx')
         const fileData = fs.readFileSync(fileDataPath)
         const req = mockRequest(
             { invoicingMonth: '2024-03' },

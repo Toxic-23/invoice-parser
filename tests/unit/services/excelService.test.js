@@ -22,7 +22,10 @@ describe('processExcelFile', () => {
     })
 
     it('should throw an error if date format conversion fails', () => {
-        const fileDataPath = path.join(__dirname, '../../file_broken_date.xlsx')
+        const fileDataPath = path.join(
+            __dirname,
+            '../../fixtures/file_broken_date.xlsx',
+        )
         const binaryData = fs.readFileSync(fileDataPath)
         const mockedError = new Error('Date format conversion error')
 
@@ -45,7 +48,7 @@ describe('processExcelFile', () => {
     })
 
     it('should throw an error if input data validation fails', () => {
-        const fileDataPath = path.join(__dirname, '../../file.xlsx')
+        const fileDataPath = path.join(__dirname, '../../fixtures/file.xlsx')
         const binaryData = fs.readFileSync(fileDataPath)
         const expectedInputParsedPath = path.join(
             __dirname,
