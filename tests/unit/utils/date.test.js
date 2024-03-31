@@ -23,7 +23,6 @@ describe('date util', () => {
             const outputFormat = 'yyyy-MM-dd'
             const expectedOutput = '2022-01-01'
 
-            // Mock the parse and format functions
             dateFns.parse.mockReturnValue(new Date(inputDateStr))
             dateFns.format.mockReturnValue(expectedOutput)
 
@@ -49,7 +48,6 @@ describe('date util', () => {
             const inputDateStr = 'Invalid Date'
             const inputFormat = 'dd MMM yyyy'
 
-            // Mock the parse function to return an invalid date
             dateFns.parse.mockReturnValue(new Date(NaN))
 
             expect(() => {

@@ -16,7 +16,6 @@ describe('extractDataService', () => {
 
             const result = extractDataService.extractDataFromExcel(binaryData)
 
-            // Add your assertions here to verify the extracted data
             expect(result.InvoicingMonth).toEqual('Sep 2023')
             expect(result.currencyRates).toEqual([
                 {
@@ -49,13 +48,11 @@ describe('extractDataService', () => {
                 parsedInput.currencyRates,
             )
 
-            // Verify that there are invoices with missing 'Invoice Currency' field
             const invoicesWithMissingCurrency = result.filter(
                 (invoice) => !invoice['Invoice Currency'],
             )
             expect(invoicesWithMissingCurrency.length).toBeGreaterThan(0)
 
-            // Verify that validation error message is added for invoices with missing 'Invoice Currency'
             invoicesWithMissingCurrency.forEach((invoice) => {
                 let errors = invoice.validationErrors.filter(
                     (i) => i === '"Invoice Currency" must be a string',
