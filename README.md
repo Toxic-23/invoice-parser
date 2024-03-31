@@ -47,6 +47,5 @@ npm test
 
 -   [date-fns](https://github.com/date-fns/date-fns) - Date utility functions.
 -   [express](https://github.com/expressjs/express) - Web framework for Node.js.
--   [formidable](https://github.com/node-formidable/formidable) - Library for parsing form data.
 -   [joi](https://github.com/sideway/joi) - Schema validation library.
 -   [xlsx](https://github.com/SheetJS/sheetjs) - Library for Excel file manipulation.
